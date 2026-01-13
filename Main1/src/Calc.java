@@ -1,6 +1,6 @@
-package java_nyuumon.chap6;
 
-public class Calc6_1 {
+
+public class Calc {
 //計算機プログラム
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ

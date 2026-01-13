@@ -10,5 +10,5 @@ public class Main5_8 {
 		// TODO 自動生成されたメソッド・スタブ
 		System.out.println(add(add(10, 20),add(30,40)));  //add(30, 70)
 	}
-
+		//void mainは最後に処理される
 }

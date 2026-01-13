@@ -1,5 +1,7 @@
 //次にHeroクラスを定義する
-public class Hero {
+package java_nyuumon.chap9;
+
+public class Hero9_3 {
 	String name;
 	int hp;
 	Sword Sword;  //勇者が装備している剣の情報
