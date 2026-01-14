@@ -1,7 +1,5 @@
 package java_nyuumon.chap6;
 
-import CalcLogic;
-
 public class Calc6_4 {
 //正しく修正したCalc.java
 	public static void main(String[] args) {

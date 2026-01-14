@@ -1,3 +1,4 @@
+package java_nyuumon.chap6;
 
 
 public class Calc {
