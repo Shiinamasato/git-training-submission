@@ -1,5 +1,7 @@
 //インクリメント演算子
-public class Main {
+package java_nikaime.chap2;
+
+public class Main2_5 {
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
