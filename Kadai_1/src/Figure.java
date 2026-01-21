@@ -7,17 +7,18 @@ public interface Figure {
 
 	/*
 	 * 図形描画機能の定義
+	 * ※インタフェースの為public abstract は省略
+	 * ※abstractの為{}ではなく;で終わる
 	 */
-	public void draw() {
-				
-	}
+	void draw();
 
 	/**
 	 * 長さ測定機能の定義
+	 * ※インタフェースの為public abstract は省略
+	 * ※abstractの為{}ではなく;で終わる
+	 * 
 	 * @return 長さ
 	 */
-	public double getPerimeter(){
-		return this;
-	}
+	double getPerimeter();
 
 }

@@ -34,16 +34,34 @@ public class Line implements Figure { //※Figureクラスを継承
 		this.p2 = new Point(x2, y2);
 	}
 
+	/**
+	 * 
+	 * 以下のようなメッセージを表示する。なお、始点をp1、終点をp2とする。
+	 *出力例：
+	 *"[線を描画] 始点(0,0)から終点(100,100)まで"
+	 *
+	 *※p1＝始点  p2＝終点
+	 */
 	public void draw() {
 		System.out.println("[線を描画]始点(" + p1.getX() + "," + p1.getX() + ")から終点(" + p2.getX() + "," + p2.getY() + ")まで");
-
 	}
 
+	/**
+	 * 始点データと終点データを使い、以下の計算式で算出した結果を返す。
+	 *(( 終点のx座標 - 始点のx座標 ) ^2
+	 *+ ( 終点のy座標 - 始点のy座標 ) ^2 ) の平方根
+	 *累　乗...Math.powメソッド
+	 **平方根...Math.sqrtメソッド
+	 * 
+	 *@return　計算結果
+	 *※※式が不明
+	 */
+
 	public double getPerimeter() {
-		public double Math.sqrt
-		
-		
-		return this.Perimeter;
+
+		return Math.sqrt(
+				Math.pow(p2.getX() - p1.getX(), 2) +
+						Math.pow(p2.getY() - p1.getY(), 2));
 	}
 
 }
