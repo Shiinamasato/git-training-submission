@@ -30,7 +30,7 @@ public abstract class Polygon extends Shape {
 	 * @return 算出された内角の和 (int型)
 	 */
 	public int getInternalAngle() {
-		return (angle -2) * 180;
+		return (angle - 2) * 180;
 	}
 
 }

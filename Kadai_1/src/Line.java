@@ -54,14 +54,13 @@ public class Line implements Figure { //※Figureクラスを継承
 	 **平方根...Math.sqrtメソッド
 	 * 
 	 *@return　計算結果
-	 *※※式が不明
 	 */
 
 	public double getPerimeter() {
 
 		return Math.sqrt(
-				Math.pow(p2.getX() - p1.getX(), 2) +
-						Math.pow(p2.getY() - p1.getY(), 2));
+				Math.pow((p2.getX() - p1.getX()), 2)
+						+ Math.pow((p2.getY() - p1.getY()), 2));
 	}
 
 }
