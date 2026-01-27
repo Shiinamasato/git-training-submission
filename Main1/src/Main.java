@@ -1,17 +1,20 @@
-import java.util.ArrayList;
+//HashMapクラスの利用
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Main {
+
 	public static void main(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+		Map<string, Integer> prefs = new HashMap<String, Integer>();
 		
-		ArrayList<Integer> points = new ArrayList<Integer>();  //Integer型でArrayListを宣言
-		
-		points.add(10);   //自動的にIntegerに変換、格納される
-		points.add(80);
-		points.add(75);
-		for(int i : points) {  //拡張for文も利用可能
-			System.out.println(i);
-		}
+		prefs.add("京都府", 255);
+		prefs.add("東京都", 1261);
+		prefs.add("熊本県", 181);
 		
 		
 	}
+
 }
