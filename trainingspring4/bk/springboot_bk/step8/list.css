@@ -1,10 +1,8 @@
-body {
-  width: 90%;
-}
-table{
-    width: 100%;
+
+table {
+    width: 90%;
     border-collapse: collapse;
-  font-size: 12px;
+    font-size: 12px;
 }
 
 table th, table td {
@@ -13,8 +11,9 @@ table th, table td {
 }
 
 table th {
-  background-color: #F2F2F2;
+    background-color: #F2F2F2;
 }
+
 .center {
-  text-align: center;
+    text-align: center;
 }
