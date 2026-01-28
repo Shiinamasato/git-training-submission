@@ -1,9 +1,8 @@
-package com.example.demo.controller;
+package com.example.demo.springboot_bk.step5;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +13,7 @@ import com.example.demo.service.UserService;
 /**
  * ユーザー情報 Controller
  */
-@Controller
+//@Controller
 public class UserController {
 
 	/**
@@ -51,10 +50,8 @@ public class UserController {
 	 * @param model Model
 	 * @return ユーザー情報詳細画面
 	 */
-	 @GetMapping("/user/{id}")
-	  public String displayView(@PathVariable Long id, Model model) {
-	    User user = userService.findById(id);
-	    model.addAttribute("userData", user);
-	    return "user/view";
-	  }
+	@GetMapping("/user/{id}")
+	public String displayView(@PathVariable Long id, Model model) {
+		return "user/view";
+	}
 }
