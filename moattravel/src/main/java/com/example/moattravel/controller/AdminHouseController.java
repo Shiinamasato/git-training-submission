@@ -39,8 +39,7 @@ public class AdminHouseController {
 	 *・メソッドにModel型の引数を指定する
 	 *・メソッド内でaddAttribute()メソッドを使い
 	 *ビュー側から参照する変数, ビューに渡すデータ　を渡す。 
-	 *
-	 *（コントローラーで）
+	 *形として覚える。
 	 */
 	@GetMapping
 	public String index(Model model) {
