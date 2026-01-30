@@ -8,11 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
  * そのクラスがコントローラとして機能するようになる。
  */
 
-@Controller   //アノテーション（注釈）
+@Controller //アノテーション（注釈）
 
 public class HomeController {
-	
-	
+
 	/*
 	 * コントローラ内のメソッドに@GetMappingを付けることで
 	 * HTTPリクエストのGETメソッドにマッピング(対応づけ)ができる
@@ -21,7 +20,7 @@ public class HomeController {
 	 * この場合は("/")の為、アプリのトップページに
 	 * （GETメソッドで）アクセスされたときにこのメソッドが実行される
 	 */
-	@GetMapping("/")  
+	@GetMapping("/")
 	public String index() {
 
 		/*
