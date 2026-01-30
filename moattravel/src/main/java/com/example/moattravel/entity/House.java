@@ -72,13 +72,13 @@ public class House {
 	private Integer capacity;
 
 	@Column(name = "postar_code")
-	private String postalcode;
+	private String postarCode;
 
 	@Column(name = "address")
 	private String address;
 
 	@Column(name = "phone_number")
-	private String pheneNumber;
+	private String phoneNumber;
 
 	/*
 	 * insertable属性 = 「そのカラムに値を挿入できるかどうか」
@@ -86,7 +86,7 @@ public class House {
 	 * 両者、デフォは(true) 、falseにすることでアプリ側で干渉ができなくなり
 	 * 値の管理をデータベース側で任せられる
 	 */
-	@Column(name = "created_at, insertable = false, updatable = false")
+	@Column(name = "created_at", insertable = false, updatable = false)
 	private Timestamp createdAt;
 
 	@Column(name = "updated_at", insertable = false, updatable = false)
