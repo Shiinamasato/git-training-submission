@@ -19,21 +19,33 @@ import com.example.moattravel.repository.HouseRepository;
  */
 @RequestMapping("/admin/houses")
 
+
+/*
+ * このAdminHouseControllerクラス(A)がHouseRepositoryのオブジェクト(B)を利用している
+ * そして、Aの中でBのオブジェクトを直接生成するのではなく、Aに対してBのオブジェクトを外部から提供
+ * ＝ 依存性の注入（DI）
+ */
 public class AdminHouseController {
 
 	private final HouseRepository houseRepository;
 
-	
-	
 	public AdminHouseController(HouseRepository houseRepository) {
 		this.houseRepository = houseRepository;
 	}
 
+	
+	/*
+	 *コントローラからビューにデータを渡す場合、Modelクラスを使う
+	 *・メソッドにModel型の引数を指定する
+	 *・メソッド内でaddAttribute()メソッドを使い
+	 *ビュー側から参照する変数, ビューに渡すデータ　を渡す。 
+	 *
+	 *（コントローラーで）
+	 */
 	@GetMapping
-
 	public String index(Model model) {
-		List<House> house = houseRepository.findAll();
-		model.addAttribute("houses", house);
+		List<House> houses = houseRepository.findAll();
+		model.addAttribute("houses", houses);
 
 		return "admin/houses/index";
 	}
