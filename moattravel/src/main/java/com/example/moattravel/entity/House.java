@@ -71,8 +71,8 @@ public class House {
 	@Column(name = "capacity")
 	private Integer capacity;
 
-	@Column(name = "postar_code")
-	private String postarCode;
+	@Column(name = "postal_code")
+	private String postalCode;
 
 	@Column(name = "address")
 	private String address;
