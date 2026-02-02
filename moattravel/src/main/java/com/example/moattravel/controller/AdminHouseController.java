@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.moattravel.entity.House;
 import com.example.moattravel.repository.HouseRepository;
@@ -43,12 +44,35 @@ public class AdminHouseController {
 	 */
 	@GetMapping
 	public String index(Model model,
-			@PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC) Pageable pageable) {
+			@PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC) Pageable pageable,
+
+			/*
+			 * @RequestParamアノテーションをつけることで
+			 * フォームから送信されたパラメータ（リクエストパラメータ）を
+			 * その引数に割り当てる
+			 * name属性 = 取得するリクエストパラメータ名
+			 * requied属性 = そのリクエストが必須か否か
+			 * defaultValue属性 = リクエストパラメータの指定されていない、空のデフォルト値
+			 */
+			@RequestParam(name = "Keyword", required = false) String keyword) {
+
 		//List<House> houses = houseRepository.findAll();
-		Page<House> housePage = houseRepository.findAll(pageable);
+		//Page<House> housePage = houseRepository.findAll(pageable);
+
+		/*
+		 * keywordパラメータが存在する場合は部分一致検索を行い
+		 * そうでなければ通常通り全件のデータを取得
+		 */
+		Page<House> housePage;
+		if (keyword != null && !keyword.isEmpty()) {
+			housePage = houseRepository.findByNameLike("%" + keyword + "%", pageable);
+		} else {
+			housePage = houseRepository.findAll(pageable);
+		}
 
 		//model.addAttribute("houses", houses);
 		model.addAttribute("housePage", housePage);
+		model.addAttribute("keyword", keyword);
 
 		return "admin/houses/index";
 	}
