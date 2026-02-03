@@ -7,10 +7,12 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.moattravel.entity.House;
+import com.example.moattravel.form.HouseRegisterForm;
 import com.example.moattravel.repository.HouseRepository;
 
 @Controller
@@ -54,7 +56,7 @@ public class AdminHouseController {
 			 * requied属性 = そのリクエストが必須か否か
 			 * defaultValue属性 = リクエストパラメータの指定されていない、空のデフォルト値
 			 */
-			@RequestParam(name = "Keyword", required = false) String keyword) {
+			@RequestParam(name = "keyword", required = false) String keyword) {
 
 		//List<House> houses = houseRepository.findAll();
 		//Page<House> housePage = houseRepository.findAll(pageable);
@@ -77,4 +79,23 @@ public class AdminHouseController {
 		return "admin/houses/index";
 	}
 
+	@GetMapping("/{id}")
+
+	/*
+	 * @PathVariable ＝ URLの一部をその引数に割り当てる。
+	 */
+	public String show(@PathVariable(name = "id") Integer id, Model model) {
+		House house = houseRepository.getReferenceById(id);
+
+		model.addAttribute("house", house);
+
+		return "admin/houses/show";
+	}
+
+	@GetMapping("/register")
+	public String register(Model model) {
+		model.addAttribute("houseRegisterForm", new HouseRegisterForm());
+
+		return "admin/houses/register";
+	}
 }
