@@ -14,10 +14,64 @@ import com.example.moattravel.entity.House;
 import com.example.moattravel.form.HouseRegisterForm;
 import com.example.moattravel.repository.HouseRepository;
 
+/*
+ * @serviceアノテーションをつける事により、
+ * そのクラスがサービスクラスとして機能する
+ */
 @Service
 public class HouseService {
 	private final HouseRepository houseRepository;
-	
-	public HouseService(HouseRepository houseRepository) {
 
+	public HouseService(HouseRepository houseRepository) {
+		this.houseRepository = houseRepository;
+	}
+
+	/*
+	 * @Transactionalアノテーション ＝ メソッドに付けることで、
+	 * そのメソッドをトランザクション化する。
+	 * （複数の処理をひとまとめにして、すべて成功ならcommit
+	 *   １つでも失敗ならrollback する。）
+	 */
+	@Transactional
+	public void create(HouseRegisterForm houseRegisterForm) {
+		House house = new House();
+		MultipartFile imageFile = houseRegisterForm.getImageFile();
+
+		if (!imageFile.isEmpty()) {
+			String imageName = imageFile.getOriginalFilename();
+			String hashedImageName = generateNewFileName(imageName);
+			Path filePath = Paths.get("src/main/resources/static/storage/" + hashedImageName);
+			copyImageFile(imageFile, filePath);
+			house.setImageName(hashedImageName);
+		}
+
+		house.setName(houseRegisterForm.getName());
+		house.setDescription(houseRegisterForm.getDescription());
+		house.setPrice(houseRegisterForm.getPrice());
+		house.setCapacity(houseRegisterForm.getCapacity());
+		house.setPostalCode(houseRegisterForm.getPostalCode());
+		house.setAddress(houseRegisterForm.getAddress());
+		house.setPhoneNumber(houseRegisterForm.getPhoneNumber());
+
+		houseRepository.save(house);
+	}
+
+	//UUIDを使って生成したファイル名を返す
+	public String generateNewFileName(String fileName) {
+		String[] fileNames = fileName.split("\\.");
+		for (int i = 0; i < fileNames.length - 1; i++) {
+			fileNames[i] = UUID.randomUUID().toString();
+		}
+		String hashedFileName = String.join(".", fileNames);
+		return hashedFileName;
+	}
+
+	//画像ファイルを指定したファイルにコピーする
+	public void copyImageFile(MultipartFile imageFile, Path filePath) {
+		try {
+			Files.copy(imageFile.getInputStream(), filePath);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
