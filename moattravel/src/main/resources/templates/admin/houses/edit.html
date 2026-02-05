@@ -60,50 +60,99 @@
 								<img th:src="@{/storage/__${imageName}__}" class="mb-3">
 							</div>
 							<div th:unless="${imageName}" class="row" id="imagePreview"></div>
-							
+
 							<div class="form-group row mb-3">
 								<div class="col-md-4">
 									<label for="description" class="col-form-label text-md-left fw-bold">説明</label>
 								</div>
-								
+
 								<div class="col-md-8">
-									<div th:if="${#fields.hasErrors('description')}" class="text-danger small mb-2" th:errors="*{description}"></div>
-									<textarea class="form-control" th:field="*{description}" cols="30" rows="5"></textarea>
+									<div th:if="${#fields.hasErrors('description')}" class="text-danger small mb-2"
+										th:errors="*{description}"></div>
+									<textarea class="form-control" th:field="*{description}" cols="30"
+										rows="5"></textarea>
 								</div>
-							</div>
-							
-							<div class="form-group row mb-3">
-								<div class="col-md-4">
-									<label for="price" class="col-form-label text-md-left fw-bold">宿泊料金（単位：円）</label
-								</div>
-								
-								<div class="col-md-8">
-									<div th:if="${#fields.hasErrors('price')}" class="text-danger small mb-2" th:errors="*{price}"></div>
-									<input type="number" class="form-control" th:field="*{price}">
-								</div>
-							</div>
-							
-							<div class="form-group row mb-3">
-								<div class="col-md-4">
-									<label for="capacity" class="col-form-label text-md-left fw-bold">定員（単位：人）</label>
-								</div>
-								
-								<div class="col-md-8">
-									<div th:if="${#fields.hasErrors('capacity')}" class="text-danger small mb-2" th:errors="*{capacity}"></div>
-									<input type="number" class="form-control" th:field="*{capacity}">
-								</div>
-							</div>
-							
-							<div class="form-group row mb-3">
-								
 							</div>
 
+							<div class="form-group row mb-3">
+								<div class="col-md-4">
+									<label for="price" class="col-form-label text-md-left fw-bold">宿泊料金（単位：円）</label>
+								</div>
+
+									<div class="col-md-8">
+										<div th:if="${#fields.hasErrors('price')}" class="text-danger small mb-2"
+											th:errors="*{price}"></div>
+										<input type="number" class="form-control" th:field="*{price}">
+									</div>
+								</div>
+
+								<div class="form-group row mb-3">
+									<div class="col-md-4">
+										<label for="capacity"
+											class="col-form-label text-md-left fw-bold">定員（単位：人）</label>
+									</div>
+
+									<div class="col-md-8">
+										<div th:if="${#fields.hasErrors('capacity')}" class="text-danger small mb-2"
+											th:errors="*{capacity}"></div>
+										<input type="number" class="form-control" th:field="*{capacity}">
+									</div>
+								</div>
+
+								<div class="form-group row mb-3">
+									<div class="col-md-4">
+										<label for="postalCode" class="col-form-label text-md-left fw-bold">郵便番号</label>
+									</div>
+
+									<div class="col-md-8">
+										<div th:if="${#fields.hasErrors('postalCode')}" class="text-danger small mb-2"
+											th:errors="*{postalCode}"></div>
+										<input type="text" class="form-control" th:field="*{postalCode}">
+									</div>
+								</div>
+
+								<div class="form-group row mb-3">
+									<div class="col-md-4">
+										<label for="address" class="col-form-label text-md-left fw-bold">住所</label>
+									</div>
+
+									<div class="col-md-8">
+										<div th:if="${#fields.hasErrors('address')}" class="text-danger small mb-2"
+											th:errors="*{address}"></div>
+										<input type="text" class="form-control" th:field="*{address}">
+									</div>
+								</div>
+
+								<div class="form-group row mb-3">
+									<div class="col-md-4">
+										<label for="phoneNumber"
+											class="col-form-label text-md-left fw-bold">電話番号</label>
+									</div>
+
+									<div class="col-md-8">
+										<div th:if="${#fields.hasErrors('phoneNumber')}" class="text-danger small mb-2"
+											th:errors="*{phoneNumber}"></div>
+										<input type="text" class="form-control" th:field="*{phoneNumber}">
+									</div>
+								</div>
+
+
+								<div class="form-group d-flex justify-content-center my-4">
+									<button type="submit"
+										class="btn text-white shadow-sm w-50 moattravel-btn">更新</button>
+								</div>
 						</form>
 					</div>
 				</div>
 			</div>
 		</main>
+
+		<!-- フッター -->
+		<div th:replace="~{fragment :: footer}"></div>
 	</div>
+
+	<div th:replace="~{fragment :: scripts}"></div>
+	<script th:src="@{/js/preview.js}"></script>
 </body>
 
 </html>
