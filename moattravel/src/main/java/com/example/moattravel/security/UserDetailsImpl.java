@@ -12,7 +12,7 @@ public class UserDetailsImpl implements UserDetails {
 	private final Collection<GrantedAuthority> authorities;
 
 	public UserDetailsImpl(User user, Collection<GrantedAuthority> authorities) {
-		
+
 		this.user = user;
 		this.authorities = authorities;
 	}
