@@ -34,7 +34,7 @@ public class StripeService {
                                       ReservationRegisterForm reservationRegisterForm,
                                       HttpServletRequest httpServletRequest) {
 
-        Stripe.apiKey = stripeApiKey;
+        Stripe.apiKey = "APIシークレットキーの入力箇所";
         String requestUrl = new String(httpServletRequest.getRequestURL());
 
         SessionCreateParams params =
