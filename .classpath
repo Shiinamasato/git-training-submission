@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Kadai_1/src"/>
+	<classpathentry excluding="java_nyuumon/chap9/" kind="src" path="Main1/src"/>
+	<classpathentry kind="src" path="Main1/src/java_nyuumon/chap9"/>
+	<classpathentry kind="src" path="moattravel/src/main/java"/>
+	<classpathentry kind="src" path="trainingspring4/src/main/java"/>
+	<classpathentry kind="src" path="trainingspring4/src/test/java"/>
+	<classpathentry kind="lib" path="trainingspring4/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
